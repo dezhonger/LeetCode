@@ -1,4 +1,4 @@
-//一个数旋转四次回到原地，求出这几个位置，循环交换一下，空间复杂度O(1)
+//涓�涓暟鏃嬭浆鍥涙鍥炲埌鍘熷湴锛屾眰鍑鸿繖鍑犱釜浣嶇疆锛屽惊鐜氦鎹竴涓嬶紝绌洪棿澶嶆潅搴(1)
 public class Solution {
     public void rotate(int[][] matrix) {
         int m = matrix.length;
