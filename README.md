@@ -1,7 +1,8 @@
 # LeetCode
 Some solutions
 
-###主要是一些hard和medium难度的题目###
+###easy类别的题目除了最新出的没有做之外，已经全部做了###
+###接下来要做medium的题目###
 
 
 - 希望可以在这几个月刷完LeetCode的题目
