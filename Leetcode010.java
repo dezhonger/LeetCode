@@ -2,13 +2,13 @@
  * Created by dezhonger on 2016/8/3.
  */
 //Some examples:
-//        isMatch("aa","a") ¡ú false
-//        isMatch("aa","aa") ¡ú true
-//        isMatch("aaa","aa") ¡ú false
-//        isMatch("aa","a*") ¡ú true
-//        isMatch("aa",".*") ¡ú true
-//        isMatch("ab",".*") ¡ú true
-//        isMatch("aab","c*a*b") ¡ú true
+//        isMatch("aa","a") Â¡Ãº false
+//        isMatch("aa","aa") Â¡Ãº true
+//        isMatch("aaa","aa") Â¡Ãº false
+//        isMatch("aa","a*") Â¡Ãº true
+//        isMatch("aa",".*") Â¡Ãº true
+//        isMatch("ab",".*") Â¡Ãº true
+//        isMatch("aab","c*a*b") Â¡Ãº true
 
 public class Solution {
 
