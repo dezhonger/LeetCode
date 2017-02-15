@@ -1,6 +1,6 @@
-//��һ������ÿ�к�ÿ�ж�������ģ��ҵ���k�������
+//给一个矩阵，每行和每列都是增序的，找到第k大的数。
 
-//ά��һ��heap�����ȶ��У�(0, 0)��ӣ������ұߺ��±ߵ�����ѭ��k�μ��ɡ�
+//维护一个heap或优先队列，(0, 0)入队，加入右边和下边的数，循环k次即可。
 
 public class Solution {
     public int kthSmallest(int[][] matrix, int k) {

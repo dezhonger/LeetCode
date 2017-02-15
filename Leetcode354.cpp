@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-//�����Ŀ��������һ������Ƕ���Ǹ���Ŀ�ˣ���������ĿҪ�󳤺Ϳ����ܽ��������˳������ݲ�֪������ֱ�Ӽ��仯�������ɡ�
+//这个题目本来看成一个矩形嵌套那个题目了，结果这个题目要求长和宽不能交换，看了出错数据才知道。。直接记忆化搜索即可。
 class Solution {
 public:
     vector<int> dp;
