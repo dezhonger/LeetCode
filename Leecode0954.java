@@ -9,7 +9,7 @@ import java.util.List;
  * @author zhangweilong@corp.netease.com
  * @since 2019/04/03
  */
-public class Leecode954 {
+public class Leecode0954 {
 
     public boolean canReorderDoubled(int[] A) {
         int ma = 2000020;
