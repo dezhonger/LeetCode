@@ -5,7 +5,7 @@
  * @author zhangweilong@corp.netease.com
  * @since 2019/08/13
  */
-public class Leetcode1115 {
+public class Leetcode1155 {
 
     public int numRollsToTarget(int d, int f, int target) {
         int[] dp = new int[target + 1];
