@@ -1,4 +1,4 @@
-package p1107.p20170222;
+
 
 /**
  * Created by dezhonger on 2017/2/22.
@@ -8,7 +8,7 @@ package p1107.p20170222;
  * 存在的话分别二分找出两个边界
  * O(3NlogN)
  */
-public class Leetcode034 {
+public class Leetcode0034 {
 
 	public static void main(String[] args) {
 		int[] a = new Leetcode034().searchRange(new int[]{5,7,7,8,8,10}, 8);
