@@ -1,4 +1,4 @@
-package p1107.p20170217;
+
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  */
 
 
-public class Leetcode508 {
+public class Leetcode0508 {
 
 	Map<Integer, Integer> map = new HashMap<>();
 
