@@ -1,4 +1,4 @@
-package p1107.p20170217;
+
 
 
 /**
@@ -14,7 +14,7 @@ class TreeNode {
     TreeNode(int x) { val = x; }
 }
 
-public class Leetcode513 {
+public class Leetcode0513 {
 
 	int maxDepth = 0;
 	int ans = 0;
