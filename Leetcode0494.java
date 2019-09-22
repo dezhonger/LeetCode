@@ -1,4 +1,3 @@
-package p1107.p20170210;
 
 /**
  * Created by dezhonger on 2017/2/10.
@@ -14,7 +13,7 @@ package p1107.p20170210;
  * sum(P) = [target + sum(nums)] / 2 = k
  * 转化为一个背包问题，在原数组中组合为k的方法数
  */
-public class Leetcode494 {
+public class Leetcode0494 {
 	public int findTargetSumWays(int[] nums, int target) {
 		int sum = 0;
 		for (int n : nums)
