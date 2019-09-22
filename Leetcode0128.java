@@ -1,4 +1,4 @@
-package p1107.p20170217;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import java.util.Map;
  * Created by dezhonger on 2017/2/17.
  * 如果一段连续的序列[L, R]的长度为x,那么map.get(L) = map.get(R) = x
  */
-public class Leetcode128 {
+public class Leetcode0128 {
 	//[100,4,200,1,3,2] return 4
 	public int longestConsecutive(int[] nums) {
 		int ans = 0;
