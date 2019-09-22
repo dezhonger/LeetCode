@@ -1,4 +1,4 @@
-public class Solution {
+public class Leetcode0123 {
     public int maxProfit(int[] prices) {
         if(prices.length < 2) return 0;
         int l = prices.length;
