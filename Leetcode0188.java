@@ -1,10 +1,10 @@
-package p1107.p20170213.stock;
+
 
 /**
  * Created by dezhonger on 2017/2/13.
  * http://bookshadow.com/weblog/2015/02/18/leetcode-best-time-to-buy-and-sell-stock-iv/
  */
-public class Leetcode188 {
+public class Leetcode0188 {
 	public int maxProfit(int k, int[] prices) {
 		int len = prices.length;
 		if(k > len / 2) {
