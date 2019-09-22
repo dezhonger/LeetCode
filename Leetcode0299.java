@@ -1,4 +1,4 @@
-public class Solution {
+public class Leetcode0299 {
     public String getHint(String secret, String guess) {
         int a, b, len = secret.length();
         a = b = 0;
