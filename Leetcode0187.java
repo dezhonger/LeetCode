@@ -1,4 +1,3 @@
-package leetcode;
 
 import java.util.*;
 
@@ -6,7 +5,7 @@ import java.util.*;
  * Created by Dezhonger on 2017/2/23.
  * 把String hash一下
  */
-public class Leetcode187 {
+public class Leetcode0187 {
     public List<String> findRepeatedDnaSequences(String s) {
         Map<Integer, Integer> mapset = new HashMap<>();
         Set<String> se = new HashSet<>();
