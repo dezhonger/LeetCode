@@ -1,4 +1,4 @@
-package p1107.p20170214;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by dezhonger on 2017/2/14.
  */
-public class Leetcode438 {
+public class Leetcode0438 {
 
 	public void f(int[] a, String s) {
 		for(int i = 0; i < s.length(); i++) {
