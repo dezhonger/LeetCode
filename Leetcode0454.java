@@ -1,4 +1,4 @@
-package p1107.p20170223.le;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by dezhonger on 2017/2/23.
  */
-public class Leetcode454 {
+public class Leetcode0454 {
 	public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
 		Map<Integer, Integer> m1 = new HashMap<>();
 		Map<Integer, Integer> m2 = new HashMap<>();
