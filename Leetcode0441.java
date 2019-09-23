@@ -1,10 +1,10 @@
-package p1107.p20170214;
+
 
 /**
  * Created by dezhonger on 2017/2/14.
  * 求出x^2+x = 2*n的根，<=这个根的最大值就是结果。
  */
-public class Leetcode441 {
+public class Leetcode0441 {
 
 	public int cal(int n) {
 		long ans = 0;
