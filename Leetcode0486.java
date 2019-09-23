@@ -6,7 +6,7 @@ package p1107.p20170213;
  * solve(num, a, b)表是从这个数组先拿比后拿多的值
  *
  */
-public class Leetcode486 {
+public class Leetcode0486 {
 
 	public int solve(int[] num, int a, int b) {
 		if(a == b) return num[a];
