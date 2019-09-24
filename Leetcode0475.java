@@ -1,4 +1,4 @@
-package p1107.p20170215;
+
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 一些加热的东西。一些房子，求最小的半径，使所有房子都能被找到。
  * 排序+二分
  */
-public class Leetcode475 {
+public class Leetcode0475 {
 
 	public boolean f(int[] houses, int[] heaters, int ra) {
 //		System.out.println("redius = " + ra);
