@@ -1,10 +1,9 @@
-package leetcode;
 
 /**
  * Created by Dezhonger on 2017/2/22.
  * 用位运算，用第二位记录下一个状态
  */
-public class Leetcode289 {
+public class Leetcode0289 {
 
     public int cnt(int a, int b, int[][] x) {
         int m = x.length;
