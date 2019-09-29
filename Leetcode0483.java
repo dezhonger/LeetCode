@@ -12,7 +12,7 @@ package leetcode;
  *
  * 注意到任意一个数N 都可以表示为(N - 1) ^ 0 + (N - 1)^1 = N,即存在N-1为一个答案
  */
-public class Leetcode483 {
+public class Leetcode0483 {
 
     public long f(int m, int k) {
         long M = m;
@@ -39,9 +39,4 @@ public class Leetcode483 {
         return (N - 1) + "";
     }
 
-    public static void main(String[] args) {
-        System.out.println(new Leetcode483().smallestGoodBase(3+""));
-//        System.out.println(new Leetcode483().smallestGoodBase(13+""));
-//        System.out.println(new Leetcode483().smallestGoodBase(4681+""));
-    }
 }
