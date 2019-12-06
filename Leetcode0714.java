@@ -6,7 +6,7 @@ package com.dezhonger.le;
  * @author dezhonger
  * @since 2019/12/06
  */
-public class Leetcode0721 {
+public class Leetcode0714 {
     public int maxProfit(int[] prices, int fee) {
         int[] have = new int[prices.length];
         int[] notHave = new int[prices.length];
