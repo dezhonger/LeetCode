@@ -6,7 +6,7 @@ package com.y2019.m12.d27;
  * @author zhangweilong@corp.netease.com
  * @since 2019/12/27
  */
-public class Leetcode1177 {
+public class Leetcode1208 {
     public int equalSubstring(String s, String t, int maxCost) {
         int[] c = new int[s.length()];
         for (int i = 0; i < s.length(); i++) {
