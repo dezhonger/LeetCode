@@ -1,28 +1,42 @@
-package com.y2019.m12.d05;
+package com.y2020.m01.d05;
 
-import java.util.Arrays;
+import java.util.Stack;
 
 /**
- * Created by zhangweilong on 2019/12/05
+ * Created by zhangweilong on 2020/01/05
  *
  * @author zhangweilong@corp.netease.com
- * @since 2019/12/05
+ * @since 2020/01/05
  */
 public class Leetcode0735 {
-    public int[] dailyTemperatures(int[] T) {
-        int[] res = new int[T.length];
-        Arrays.fill(res, Integer.MAX_VALUE);
-        res[T.length - 1] = 0;
-        int[] v = new int[101];
-        v[T[T.length - 1]] = T.length - 1;
-        for (int i = T.length - 2; i >= 0; i--) {
-            int x = T[i];
-            for (int j = x + 1; j <= 100; j++) {
-                if (v[j] > 0) res[i] = Math.min(v[j] - i, res[i]);
+    public int[] asteroidCollision(int[] asteroids) {
+        Stack<Integer> stack = new Stack<>();
+        for (int x : asteroids) {
+            if (stack.empty()) stack.add(x);
+            else {
+                while (true) {
+                    if (!stack.empty() && x < 0 && stack.peek() > 0) {
+                        if (-x == stack.peek()) {
+                            stack.pop();
+                            break;
+                        }
+                        else if (-x > stack.peek()) {
+                            stack.pop();
+                        } else {
+                            break;
+                        }
+                    } else {
+                        stack.add(x);
+                        break;
+                    }
+                }
+
             }
-            if (res[i] == Integer.MAX_VALUE) res[i] = 0;
-            v[x] = i;
         }
+        if (stack.size() == 0) return new int[0];
+        int[] res = new int[stack.size()];
+        for (int i = res.length - 1; i >= 0; i--) res[i] = stack.pop();
         return res;
     }
+
 }
