@@ -18,9 +18,6 @@ import java.util.TreeMap;
  * @since 2020/01/11
  */
 public class Leetcode0870 {
-    public static void main(String[] args) {
-        new Leetcode0870().advantageCount(new int[]{2, 7, 11, 15}, new int[]{1, 10, 4, 11});
-    }
     public int[] advantageCount(int[] A, int[] B) {
         int len = A.length;
         Arrays.sort(A);
