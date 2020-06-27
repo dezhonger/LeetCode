@@ -16,15 +16,6 @@ import java.util.Map;
  * @since 2020/06/27
  */
 public class Leetcode1488 {
-    public static void main(String[] args) {
-//        int[] s = new Leetcode1488().avoidFlood(new int[]{1, 0, 2, 0, 2, 1});
-
-        int[] s = new Leetcode1488().avoidFlood(new int[]{2,3,0,0,3,1,0,1,0,2,2});
-//        int[] s = new Leetcode1488().avoidFlood(new int[]{1, 0, 2, 3, 0, 1, 2});
-        System.out.println(Arrays.toString(s));
-
-
-    }
 
     public int[] avoidFlood(int[] rains) {
         int len = rains.length;
