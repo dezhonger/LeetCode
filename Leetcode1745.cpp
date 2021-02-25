@@ -7,7 +7,7 @@ class Solution {
 public:
     bool checkPartitioning(string s) {
 		int sz = s.size();
-        s = ' ' + s;
+		s = ' ' + s;
 		memset(f, 0, sizeof f);
 		memset(g, 0, sizeof g);
 		for (int i = 1; i <= sz; i++) {
