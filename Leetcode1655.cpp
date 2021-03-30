@@ -1,44 +1,36 @@
+//https://leetcode-cn.com/problems/minimum-initial-energy-to-finish-tasks/solution/wan-cheng-suo-you-ren-wu-de-zui-shao-chu-shi-neng-/
+
 #define ps push_back
-const int N = 1 << 10;
-bool f[55][N];
-int d[1010];
-int sum[N];
-
-
+struct fun {
+    int diff, act, mini;
+    bool operator< (fun const &w) const {
+        if (diff != w.diff) return w.diff < diff;
+        return w.mini < mini;
+    }
+};
 class Solution {
 public:
-
-    bool canDistribute(vector<int>& nums, vector<int>& quantity) {
-        memset(d, 0, sizeof d);
-        memset(sum, 0, sizeof sum);
-        int m = quantity.size();
-        for (int s = 0; s < (1 << m); s++) {
-            for (int i = 0; i < m; i++) {
-                if ((s >> i) & 1) sum[s] += quantity[i];
-            }
-        }
+    
+    int minimumEffort(vector<vector<int>>& tasks) {
+        int ans = 0, cur = 0;
         
+        vector<fun> v;
+        int n = tasks.size();
+        for (auto& x : tasks) v.ps({x[1] - x[0], x[0], x[1]});
+        sort(v.begin(), v.end());
         
-        for (int x : nums) d[x]++;
-        vector<int> v;
-        for (int i = 1; i <= 1000; i++) {
-            if (d[i]) v.ps(d[i]);
+        for (int i = 0; i < n; i++) {
+            fun f = v[i];
+            //cout << cur << " " << f.mini << " " << f.act << endl;
+            if (cur < f.mini) {
+                
+                ans += f.mini - cur;
+                cur = f.mini;
+            }  
+            cur -= f.act;
+            //cout << ans << endl;
         }
-        
-        //f: 前i个数字满足的状态为s是否可以
-        int n = v.size();
-        memset(f, 0, sizeof f);
-        for (int i = 0; i <= n;i ++) f[i][0] = 1;
-        for (int i = 1; i <= n; i++) {
-            for (int s = 0; s < (1 << m); s++) {
-                f[i][s] |= f[i - 1][s];
-                for (int sub = s; sub; sub = (sub - 1) & s) {
-                    f[i][s] |= (f[i - 1][s ^ sub] & sum[sub] <= v[i - 1]);
-                    if (f[i][s]) break;
-                }
-            }
-        }
-        return f[n][(1 << m) - 1];
+        return ans;
         
     }
 };
