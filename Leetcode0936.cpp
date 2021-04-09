@@ -15,7 +15,7 @@ public:
 	}
 
     vector<int> movesToStamp(string stamp, string target) {
-        queue<int> q;
+        	queue<int> q;
 		set<int> use;
 
 		int n = stamp.size(), m = target.size();
