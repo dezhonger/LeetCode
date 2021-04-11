@@ -47,8 +47,8 @@ class Solution {
 			for (int i = 0; i < n; i++) {
 				int r = 0, c = 0;
 				for (int j = 0; j < n; j++) {
-                    r = (r << 1) | board[i][j];
-                    c = (c << 1) | board[j][i];
+                    			r = (r << 1) | board[i][j];
+                    			c = (c << 1) | board[j][i];
 					
 				}
 				rs.insert(r), cs.insert(c);
