@@ -22,8 +22,8 @@ using namespace std;
 class Solution {
 public:
 	//达到这个状态的最少步数
-    unordered_map<string, int> f; //记忆化搜索
-	unordered_map<char, int> cnt; //每种字符的数量
+        unordered_map<string, int> f; //记忆化搜索
+        unordered_map<char, int> cnt; //每种字符的数量
 	int ans = 6;
 
 	inline string cleanup(string s) {
