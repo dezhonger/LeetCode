@@ -53,14 +53,14 @@ class Solution {
 				int olddpu = dp[u];
 				int oldszu = sz[u];
 				//进行换根操作，把u变为根. 换根只影响u和v的 sz和dp值
-                dp[v] = olddpv - olddpu - oldszu;
-                sz[v] = oldszv - oldszu;
-                
-                sz[u] = oldszu + sz[v];
+				dp[v] = olddpv - olddpu - oldszu;
+				sz[v] = oldszv - oldszu;
+
+				sz[u] = oldszu + sz[v];
 				dp[u] = olddpu + sz[v] + dp[v];
-				
-				
-				
+
+
+
 				dfs(u, v, r);
 				dp[u] = olddpu;
 				dp[v] = olddpv;
