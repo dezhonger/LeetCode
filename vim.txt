@@ -1,0 +1,121 @@
+
+let mapleader=" "
+map <leader>wq :wq<CR>
+map <leader>de :call Dpp()<CR>
+
+set ts=4
+set sw=4
+set expandtab
+set autoindent
+set smarttab
+set number
+set ruler
+color desert
+syntax on
+set cindent
+set cursorline
+set cursorcolumn
+set guifont=Consolas:h14
+map <F5> <Esc>:%!xxd<CR>
+map <F6> <Esc>:%!xxd -r<CR>
+"imap ee <Esc>:w<CR>
+"imap ew <Esc>:wq<CR>
+map mm <Esc>:%y+<CR>
+
+"imap vi vector<int> 
+imap ff <Esc>A;<Esc>o
+imap <S-Enter> <Esc>o
+autocmd GUIEnter * simalt ~x
+map <F7> <Esc>:set lines=25 columns=80 <CR>
+map <F8> <Esc>:set lines=135 columns=150 <CR>
+map <F2> <Esc>:w<CR><Esc>:!ojc % <CR>
+map <F3> <Esc>:w<CR><Esc>:!ojr % <CR>
+map <F4> <Esc>:!%:r.exe<CR>
+"map <F4> <Esc>:33<CR>o
+"tree dir switch
+map <F12> :NERDTreeMirror<CR>
+map <F12> :NERDTreeToggle<CR>
+inoremap { {}<Esc>i<CR><Esc>koi<Esc>j<C-S-v><S-%>=j<S-$>xa
+inoremap } {}<Esc>i
+"set statusline+=%F
+set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%] "显示文件名：总行数，总的字符数
+set laststatus=2
+set backspace=2
+
+set encoding=utf-8
+set langmenu=chinese
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+autocmd BufNewFile *.cpp exec ":call Setfilehead()" 
+func Setfilehead()
+    call append(0, '#include <bits/stdc++.h>')
+    call append(1, 'using namespace std;')
+    call append(2, '//Filename: '.expand("%"))
+    call append(3, '//')
+    call append(4, '//Author: dezhonger - csdisassembly@gmail.com')
+    call append(5, '//Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+	call append(6, '//Last modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+	call append(7, '')
+    call append(8, '#define rep(i, a, b) for(int i = (a); i < (b); i++)')
+    call append(9, '#define reps(i, a, b) for(int i = (a); i < (b); i++)')
+    call append(10, '#define pb push_back')
+    call append(11, '#define ps push')
+    call append(12, '#define mp make_pair')
+    call append(13, '#define CLR(x,t) memset(x,t,sizeof x)')
+    call append(14, '#define LEN(X) strlen(X)')
+    call append(15, '#define F first')
+    call append(16, '#define S second')
+	call append(17, '#define each(x,y) for(auto y = x.begin(); y != x.end(); y++) cout << *y << " "; cout << endl;')
+
+	call append(18, '')
+    call append(19, '#define Debug(x) cout<<#x<<"="<<x<<endl;')
+    call append(20, 'const double euler_r = 0.57721566490153286060651209;')
+    call append(21, 'const double pi = 3.141592653589793238462643383279;')
+    call append(22, 'const double E = 2.7182818284590452353602874713526;')
+    call append(23, 'const int inf = ~0U >> 1;')
+    call append(24, 'const int mod = int (1e9) + 7;')
+    call append(25, 'const double EPS = 1e-6;')
+	call append(26, '')
+    call append(27, 'typedef long long LL;')
+    call append(28, 'LL powmod(LL a,LL b) {LL res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}')
+    call append(29, 'LL gcd(LL a,LL b) { return b?gcd(b,a%b):a;}')
+	call append(30, '')
+    call append(31, 'int main() {')
+	call append(32, '#ifdef LOCAL')
+	call append(33, '    freopen("in.txt", "r", stdin);')
+	call append(34, '#endif')
+    call append(35, '    ios::sync_with_stdio (false);')
+    call append(36, '    cin.tie (0);')
+    call append(37, '    return 0;')
+    call append(38, '}')
+endfunc
+
+autocmd BufWritePre,FileWritePre *.cpp  ks|call LastMod()|'s
+fun LastMod()
+    if line("$") > 20
+        let l = 20
+    else
+        let l = line("$")
+    endif
+    exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
+        \ strftime("%Y-%m-%d %H:%M:%S")
+endfun
+
+
+fun Dpp()
+	:exe "normal 3o"
+	:exe "normal 2k"
+	let l = line(".")
+	"call setline(l + 0, ['template\<CR> <typename A, typename B>', 'string to_string(pair<A, B> p);'])
+
+endfunction
+
+iab vi vector<int>
+iab unm unordered_map<int, int>
+iab uns unordered_set<int>
+"小根堆
+iab prio priority_queue<int, vector<int>, greater<int>> q;
+iab fori for (int i = 0; i < n; i++)
+iab forj for (int j = 0; j < n; j++)
+
