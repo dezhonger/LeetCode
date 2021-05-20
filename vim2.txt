@@ -1,0 +1,154 @@
+call plug#begin( '~\vimfiles\plugin')
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'luochen1990/rainbow'
+call plug#end()
+
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+
+let mapleader=" "
+map <leader>wq :wq<CR>
+map <leader>de :call Dpp()<CR>
+
+set ts=4
+set sw=4
+set expandtab
+set autoindent
+set smarttab
+set number
+set ruler
+color desert
+syntax on
+set cindent
+set cursorline
+set cursorcolumn
+set guifont=Consolas:h14
+map <F5> <Esc>:%!xxd<CR>
+map <F6> <Esc>:%!xxd -r<CR>
+"imap ee <Esc>:w<CR>
+"imap ew <Esc>:wq<CR>
+map mm <Esc>:%y+<CR>
+map <C-W> ggdG
+
+"imap vi vector<int> 
+imap ff <Esc>A;<Esc>o
+imap <S-Enter> <Esc>o
+autocmd GUIEnter * simalt ~x
+map <F7> <Esc>:set lines=25 columns=80 <CR>
+map <F8> <Esc>:set lines=135 columns=150 <CR>
+map <F2> <Esc>:w<CR><Esc>:!ojc % <CR>
+map <F3> <Esc>:w<CR><Esc>:!ojr % <CR>
+map <F4> <Esc>:!%:r.exe<CR>
+"map <F4> <Esc>:33<CR>o
+"tree dir switch
+map <F12> :NERDTreeMirror<CR>
+map <F12> :NERDTreeToggle<CR>
+inoremap { {}<Esc>i<CR><Esc>koi<Esc>j<C-S-v><S-%>=j<S-$>xa
+inoremap } {}<Esc>i
+"set statusline+=%F
+set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%] "显示文件名：总行数，总的字符数
+set laststatus=2
+set backspace=2
+
+set encoding=utf-8
+set langmenu=chinese
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+
+autocmd BufNewFile *.cpp exec ":call Setfilehead()" 
+func Setfilehead()
+    let l = 0
+    let l = l + 1 | call setline(l, '#include <bits/stdc++.h>')
+    let l = l + 1 | call setline(l, 'using namespace std;')
+    let l = l + 1 | call setline(l, '//Filename: '.expand("%"))
+    let l = l + 1 | call setline(l, '//')
+    let l = l + 1 | call setline(l, '//Author: dezhonger - csdisassembly@gmail.com')
+    let l = l + 1 | call setline(l, '//Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+	let l = l + 1 | call setline(l, '//Last modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+	let l = l + 1 | call setline(l, '')
+    let l = l + 1 | call setline(l, '#define rep(i, a, b) for(int i = (a); i < (b); i++)')
+    let l = l + 1 | call setline(l, '#define reps(i, a, b) for(int i = (a); i <= (b); i++)')
+    let l = l + 1 | call setline(l, '#define pb push_back')
+    let l = l + 1 | call setline(l, '#define ps push')
+    let l = l + 1 | call setline(l, '#define mp make_pair')
+    let l = l + 1 | call setline(l, '#define CLR(x,t) memset(x,t,sizeof x)')
+    let l = l + 1 | call setline(l, '#define LEN(X) strlen(X)')
+    let l = l + 1 | call setline(l, '#define F first')
+    let l = l + 1 | call setline(l, '#define S second')
+	let l = l + 1 | call setline(l, '#define each(x,y) for(auto y = x.begin(); y != x.end(); y++) cout << *y << " "; cout << endl;') 
+    let l = l + 1 | call setline(l, '#define Debug(x) cout<<#x<<"="<<x<<endl;')
+    let l = l + 1 | call setline(l, '')
+    let l = l + 1 | call setline(l, 'const int mod = int (1e9) + 7;')
+    let l = l + 1 | call setline(l, 'const double EPS = 1e-6;')
+	let l = l + 1 | call setline(l, '')
+    let l = l + 1 | call setline(l, 'typedef long long LL;')
+    let l = l + 1 | call setline(l, 'LL powmod(LL a,LL b) {LL res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}')
+    let l = l + 1 | call setline(l, 'LL gcd(LL a,LL b) { return b?gcd(b,a%b):a;}')
+	let l = l + 1 | call setline(l, '')
+    let l = l + 1 | call setline(l, 'int main() {')
+	let l = l + 1 | call setline(l, '#ifdef LOCAL')
+	let l = l + 1 | call setline(l, '    freopen("in.txt", "r", stdin);')
+	let l = l + 1 | call setline(l, '#endif')
+    let l = l + 1 | call setline(l, '    ios::sync_with_stdio (false);')
+    let l = l + 1 | call setline(l, '    cin.tie (0);')
+    let l = l + 1 | call setline(l, '    return 0;')
+    let l = l + 1 | call setline(l, '}')
+endfunc
+
+
+autocmd BufWritePre,FileWritePre *.cpp  ks|call LastMod()|'s
+fun LastMod()
+    if line("$") > 20
+        let l = 20
+    else
+        let l = line("$")
+    endif
+    exe "1," . l . "g/Last modified: /s/Last modified: .*/Last modified: " .
+        \ strftime("%Y-%m-%d %H:%M:%S")
+endfun
+
+
+fun Dpp()
+	:exe "normal 3o"
+	:exe "normal 2k"
+	let l = line(".")
+	"call setline(l + 0, ['template\<CR> <typename A, typename B>', 'string to_string(pair<A, B> p);'])
+
+endfunction
+
+iab vi vector<int>
+iab su struct
+iab unm unordered_map<int, int>
+iab uns unordered_set<int>
+iab in insert(
+iab pu push(
+iab pb push_back(
+iab pii pair<int, int>
+"小根堆
+iab prio priority_queue<int, vector<int>, greater<int>> q;
+iab fori for (int i = 0; i < n; i++)
+iab forj for (int j = 0; j < n; j++)
+
+" ctags 索引文件 (根据已经生成的索引文件添加即可)
+set tags+=E:/vimstags/cpp
+" OmniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " 显示函数参数列表
+let OmniCpp_MayCompleteDot = 1   " 输入 .  后自动补全
+let OmniCpp_MayCompleteArrow = 1 " 输入 -> 后自动补全
+let OmniCpp_MayCompleteScope = 1 " 输入 :: 后自动补全
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" 自动关闭补全窗口
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest
+
+
+"ctags
+set tags=tags
+set tags+=./tags " add current directory’s generated tags file
+set tags+=E:/ctags/cpp_src.tar/cpp_src/tags " add new tags file
+
+
