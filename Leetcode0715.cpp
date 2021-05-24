@@ -118,9 +118,9 @@ class RangeModule {
         }
 
         void addRange(int left, int right) {
-            //找到第一个大于left的位置
+            //找到第一个>=left的位置
             auto i = s.lower_bound({left, -INF});
-            i--;//<=left的位置
+            i--;//<left的位置
             if (i -> y < left) {
                 //这个区间和left没有交集
                 i++;
