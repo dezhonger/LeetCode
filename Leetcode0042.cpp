@@ -1,21 +1,17 @@
 class Solution {
 public:
-    int trap(vector<int>& h) {
-        int res = 0, n = h.size();
-        stack<int> s;
-        
+    int trap(vector<int>& height) {
+        int n = height.size(), ans = 0;
+        stack<int> st;
         for (int i = 0; i < n; i++) {
-            int last = 0;
-            while (s.size() && h[i] >= h[s.top()]) {
-                res += (h[s.top()] - last) * (i - s.top() - 1);
-                last = h[s.top()];
-                s.pop();
+            while (st.size() && height[i] >= height[st.top()]) {
+                int k = st.top();
+                st.pop();
+                if (st.empty()) break;
+                ans += (i - st.top() - 1) * (min(height[i], height[st.top()]) - height[k]);
             }
-            if (s.size()) res += (i - s.top() - 1) * (h[i] - last);
-            s.push(i);
-
+            st.push(i);
         }
-        return res;
+        return ans;
     }
 };
-
