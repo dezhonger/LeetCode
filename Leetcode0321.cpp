@@ -63,7 +63,7 @@ public:
                 cout << k1 <<k2 << endl;
                 if(k1 == len1 && k2 != len2) {ans.push_back(nums2[p2]); p2++;}
                 else if(k2 == len2 && k1 != len1) {ans.push_back(nums1[p1]); p1++;}
-                else if(k2 == len2 && k1 == len1) {ans.push_back(nums1[p1]); p1++;} //¶¼¿ÉÒÔ
+                else if(k2 == len2 && k1 == len1) {ans.push_back(nums1[p1]); p1++;} //Â¶Â¼Â¿Ã‰Ã’Ã”
                 else if(nums1[k1] > nums2[k2]) {ans.push_back(nums1[p1]); p1++;}
                 else {ans.push_back(nums2[p2]); p2++;}
             }
