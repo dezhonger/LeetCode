@@ -1,4 +1,4 @@
-const int N = 1000010;
+const int N = 200010;
 
 
 //下面的数组是后缀数组算法需要定义的
@@ -59,7 +59,7 @@ void init(int _n, int _m) {
     //最大字符集的大小
     m = _m;
     // debug(n, m);
-
+    for (int i = 1; i <= m; i++) c[i] = 0;
     memset(c, 0, sizeof c);
     // memset(sa, 0, sizeof sa);
     // memset(rk, 0, sizeof rk);
