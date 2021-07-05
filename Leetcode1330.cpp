@@ -17,32 +17,16 @@ public:
             res = max(res, init + delta);
         }
         
-        int maxV1 = -1e8;
-        int maxV2 = -1e8;
-        int maxV3 = -1e8;
-        int maxV4 = -1e8;
-        for (int r = 1; r < n - 1; r++) {
-            int v1 = -abs(a[r] - a[r + 1]) - (+ a[r] + a[r + 1]);
-            int v2 = -abs(a[r] - a[r + 1]) - (+ a[r] - a[r + 1]);
-            int v3 = -abs(a[r] - a[r + 1]) - (- a[r] + a[r + 1]);
-            int v4 = -abs(a[r] - a[r + 1]) - (- a[r] - a[r + 1]);
-            
-            res = max(res, init + v1 + maxV1);
-            res = max(res, init + v2 + maxV2);
-            res = max(res, init + v3 + maxV3);
-            res = max(res, init + v4 + maxV4);
-            
-            int w1 = -abs(a[r] - a[r - 1]) + a[r - 1] + a[r];
-            int w2 = -abs(a[r] - a[r - 1]) + a[r - 1] - a[r];
-            int w3 = -abs(a[r] - a[r - 1]) - a[r - 1] + a[r];
-            int w4 = -abs(a[r] - a[r - 1]) - a[r - 1] - a[r];
-            maxV1 = max(maxV1, w1);
-            maxV2 = max(maxV2, w2);
-            maxV3 = max(maxV3, w3);
-            maxV4 = max(maxV4, w4);
-            
+        for (int f1 : {-1, 1}) {
+            for (int f2: {-1, 1}) {
+                int maxV = -1e8;
+                for (int r = 1; r < n - 1; r++) {
+                    int v = -abs(a[r] - a[r + 1]) - (f1 * a[r] + f2 * a[r + 1]);
+                    res = max(res, init + v + maxV);
+                    maxV = max(maxV, -abs(a[r] - a[r - 1]) + (f1 * a[r - 1] + f2 * a[r]));
+                }
+            }
         }
-        
         return res;
     }
 };
