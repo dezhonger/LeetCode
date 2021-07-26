@@ -1,4 +1,5 @@
-
+//https://leetcode-cn.com/problems/maximize-grid-happiness/solution/zui-da-hua-wang-ge-xing-fu-gan-by-zerotrac2/
+//插头dp
 
 // 预处理：每一个 mask 的三进制表示
 int mask_span[244][5];
