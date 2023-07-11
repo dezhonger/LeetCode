@@ -25,3 +25,17 @@ function:
         ++cnt;
         for (int y: g[x]) if (!vis[y]) dfs(y);
     };
+
+lc2201:
+https://leetcode.cn/problems/count-artifacts-that-can-be-extracted/solution/tong-ji-ke-yi-ti-qu-de-gong-jian-by-leet-uszp/
+自定义set hash：
+
+auto pair_hash = [&n, fn = hash<int>()](const pair<int, int>& o) -> size_t {
+            return fn(o.first * n + o.second);
+        };
+
+        unordered_set<pair<int, int>, decltype(pair_hash)> valid(0, pair_hash);
+        for (const auto& pos: dig) {
+            int r = pos[0], c = pos[1];
+            valid.emplace(r, c);
+        }
