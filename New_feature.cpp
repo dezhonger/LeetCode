@@ -26,6 +26,11 @@ function:
         for (int y: g[x]) if (!vis[y]) dfs(y);
     };
 
+    auto dfs = [&](int x) -> int {
+        int t = 10;
+        return t;
+    };
+
 lc2201:
 https://leetcode.cn/problems/count-artifacts-that-can-be-extracted/solution/tong-ji-ke-yi-ti-qu-de-gong-jian-by-leet-uszp/
 自定义set hash：
